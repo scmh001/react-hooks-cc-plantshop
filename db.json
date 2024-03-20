@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Date Palm ~ New guy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Dates005.jpg/220px-Dates005.jpg",
+      "price": "9999.99",
+      "id": 9
     }
   ]
 }

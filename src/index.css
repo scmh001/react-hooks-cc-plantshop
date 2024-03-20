@@ -113,6 +113,17 @@ input:focus {
   margin-top: 0.5rem;
 }
 
+.in-stock {
+  background-color: green;
+  color: white; /* Optional: changes the text color to white for better readability */
+  border: none; /* Optional: removes the border */
+  cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+}
+.in-stock:hover {
+  background-color: limegreen; /* Green background on hover */
+  color: white; /* White text on hover */
+}
+
 @media (min-width: 768px) {
   .cards {
     display: flex;
