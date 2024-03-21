@@ -43,10 +43,10 @@
       "price": 55
     },
     {
-      "name": "Date Palm ~ New guy",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Dates005.jpg/220px-Dates005.jpg",
-      "price": "9999.99",
-      "id": 9
+      "name": "Corpse Flower",
+      "image": "https://www.thespruce.com/thmb/kZHNzocEbvMx6xdKOusHiKAST28=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/thespruce-uniqueflower-Afriandi2-1bd3965dc2f94f708ef689b88c49c0a8.jpg",
+      "price": "89898989.00",
+      "id": 12
     }
   ]
 }

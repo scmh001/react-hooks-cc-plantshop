@@ -9,17 +9,24 @@ function App() {
 
 
   useEffect(() => {
-    // Fetch initial plants data from the server and set it to the state
-    fetch("http://localhost:6001/plants")
-      .then(response => response.json())
-      .then(data => setPlants(data))
-      .catch(error => console.error('Error:', error));
+    // Initialize plants from local storage if available
+    const storedPlants = JSON.parse(localStorage.getItem("plants"));
+    if (storedPlants) {
+      setPlants(storedPlants);
+    } else {
+      // Fetch initial plants data from the server and set it to the state
+      fetch("http://localhost:6001/plants")
+        .then(response => response.json())
+        .then(data => setPlants(data))
+        .catch(error => console.error('Error:', error));
+    }
   }, []);
 
+  useEffect(() => {
+    // Update local storage whenever plants state changes
+    localStorage.setItem("plants", JSON.stringify(plants));
+  }, [plants]);
 
-
-
-  // Function to add a new plant
   const onAddPlant = (newPlant) => {
     // API call to add the plant, then update state
     fetch("http://localhost:6001/plants", {
@@ -36,13 +43,25 @@ function App() {
     .catch(error => console.error('Error:', error));
   };
 
-
+  const onDeletePlant = (plantId) => {
+    // Update state to remove the plant
+    setPlants(prevPlants => prevPlants.filter(plant => plant.id !== plantId));
+    // make an API call to delete the plant from the server
+  };
+  const onUpdatePrice = (plantId, newPrice) => {
+    setPlants(plants.map(plant => {
+      if (plant.id === plantId) {
+        return { ...plant, price: newPrice };
+      }
+      return plant;
+    }));
+  };
 
   return (
     <div className="app">
       <Header />
       <NewPlantForm onAddPlant={onAddPlant} />
-      <PlantPage plants={plants} />
+      <PlantPage plants={plants} onDeletePlant={onDeletePlant} onUpdatePrice={onUpdatePrice} />
     </div>
   );
 }

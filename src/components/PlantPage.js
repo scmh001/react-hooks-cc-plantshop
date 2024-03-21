@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PlantList from "./PlantList";
 import Search from "./Search";
 
-function PlantPage({ plants }) {
+function PlantPage({ plants, onDeletePlant, onUpdatePrice }) {
   // State to hold the search query
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -19,7 +19,7 @@ function PlantPage({ plants }) {
   return (
     <main>
       <Search searchQuery={searchQuery} onSearchChange={handleSearchChange} />
-      <PlantList plants={filteredPlants} />
+      <PlantList plants={filteredPlants} onDeletePlant={onDeletePlant} onUpdatePrice={onUpdatePrice} />
     </main>
   );
 }

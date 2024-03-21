@@ -1,31 +1,45 @@
+css
 :root {
   --green: rgb(39, 189, 39);
+  --green-light: rgba(39, 189, 39, 0.7);
+  --green-dark: rgb(25, 122, 25);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.3s ease; /* Smooth transition for all elements */
 }
 
 body {
   font-family: "Playfair Display", serif;
+  background-color: #f4f4f4; /* Light background for contrast */
 }
 
 h2 {
   margin-bottom: 1rem;
+  text-transform: uppercase; /* Capitalize headings for emphasis */
 }
 
 button {
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1.5rem; /* Larger padding for a better touch area */
   font-family: inherit;
-  border: none;
+  border: 2px solid var(--green); /* Add border to buttons */
+  border-radius: 5px; /* Rounded corners for buttons */
   cursor: pointer;
+  transition: transform 0.2s; /* Smooth transform transition */
 }
 
 button.primary {
   background-color: var(--green);
   color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+button.primary:hover {
+  background-color: var(--green-light); /* Lighter green on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
 .app {
@@ -37,24 +51,27 @@ header h1 {
   font-size: 2.5em;
   font-weight: 900;
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
+  color: var(--green-dark); /* Darker text for contrast */
 }
 
 .logo {
   font-size: 1.25em;
   padding-left: 0.5rem;
-  color: transparent;
-  text-shadow: 0 0 0 var(--green);
+  color: var(--green);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
 }
 
 main {
-  padding: 0 1rem;
+  padding: 1rem;
 }
 
 .new-plant-form {
   padding: 2rem 1rem;
   margin: 2rem 0;
   background-color: rgba(181, 250, 181, 0.5);
+  border-radius: 10px; /* Rounded corners for the form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
 }
 
 .new-plant-form form {
@@ -80,10 +97,11 @@ main {
 label {
   font-weight: bold;
   display: block;
+  margin-bottom: 0.5rem; /* Space between label and input */
 }
 
 input {
-  padding: 0.25rem;
+  padding: 0.5rem;
   border: none;
   font-family: inherit;
   font-size: 1.2em;
@@ -99,14 +117,31 @@ input:focus {
 
 .cards {
   list-style: none;
+  padding: 1rem; /* Padding around the cards */
 }
 
 .card {
   margin: 1rem;
+  background-color: white; /* Card background */
+  border-radius: 10px; /* Rounded corners for cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for cards */
+  overflow: hidden; /* Ensures content fits within the rounded corners */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions for hover effects */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
 .card img {
   width: 100%;
+  display: block; /* Remove any inline spacing */
+  transition: transform 0.3s; /* Smooth image scaling */
+}
+
+.card img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .card button {
@@ -115,13 +150,13 @@ input:focus {
 
 .in-stock {
   background-color: green;
-  color: white; /* Optional: changes the text color to white for better readability */
-  border: none; /* Optional: removes the border */
-  cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+  color: white;
+  border: none;
+  cursor: pointer;
 }
+
 .in-stock:hover {
-  background-color: limegreen; /* Green background on hover */
-  color: white; /* White text on hover */
+  background-color: green;
 }
 
 @media (min-width: 768px) {
